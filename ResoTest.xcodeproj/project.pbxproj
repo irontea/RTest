@@ -16,6 +16,7 @@
 		54D1D30B279C023800A1535E /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1D30A279C023800A1535E /* MainPresenter.swift */; };
 		54D1D30D279C025F00A1535E /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1D30C279C025F00A1535E /* DetailPresenter.swift */; };
 		54D1D30F279C0F9500A1535E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1D30E279C0F9500A1535E /* NetworkService.swift */; };
+		54D1D311279C125700A1535E /* Office.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1D310279C125700A1535E /* Office.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		54D1D30A279C023800A1535E /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		54D1D30C279C025F00A1535E /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		54D1D30E279C0F9500A1535E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		54D1D310279C125700A1535E /* Office.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Office.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		54D1D304279C00C800A1535E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54D1D310279C125700A1535E /* Office.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54D1D2F1279C006000A1535E /* MainViewController.swift in Sources */,
+				54D1D311279C125700A1535E /* Office.swift in Sources */,
 				54D1D2ED279C006000A1535E /* AppDelegate.swift in Sources */,
 				54D1D2EF279C006000A1535E /* SceneDelegate.swift in Sources */,
 				54D1D30D279C025F00A1535E /* DetailPresenter.swift in Sources */,
