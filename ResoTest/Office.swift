@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Office {
+struct Office: Decodable {
     var shortName : String
     var shortAdres: String
 }
