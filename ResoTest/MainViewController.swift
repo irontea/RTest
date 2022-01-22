@@ -9,6 +9,7 @@ import UIKit
 //600 210 45
 class MainViewController: UIViewController {
 
+    var presenter: MainViewPresenterProtocol!
 
     let getOfficeButton: UIButton = {
         let getOfficeButton = UIButton()
@@ -28,7 +29,8 @@ class MainViewController: UIViewController {
     }()
     
     @objc func getOfficeFromNetwork() {
-        
+        let detailViewController = ModelBuilder.crateDetailModule()
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
     
     func setupGetOfficeButton() {
@@ -49,3 +51,12 @@ class MainViewController: UIViewController {
 
 }
 
+
+extension MainViewController: MainViewProtocol {
+    func set() {
+
+    }
+    
+
+    
+}
