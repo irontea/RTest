@@ -47,6 +47,8 @@ class DetailViewController: UIViewController {
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.layoutMargins = UIEdgeInsets.zero
+        tableView.separatorInset = UIEdgeInsets.zero
         view.addSubview(tableView)
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -118,7 +120,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         cell.officeNameLabel.text = office?.sshortname
         cell.officeAdressLabel.text = office?.sshortaddress
         cell.accessoryType = .disclosureIndicator
-
+        cell.layoutMargins = UIEdgeInsets.zero
         
         return cell
     }
