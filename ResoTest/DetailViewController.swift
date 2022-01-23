@@ -34,7 +34,7 @@ class DetailViewController: UIViewController {
         return tableView
     }()
 
-    func setupTableView() {
+    private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         view.addSubview(tableView)
@@ -45,7 +45,7 @@ class DetailViewController: UIViewController {
         
     }
     
-    func setupNavigationBar() {
+    private func setupNavigationBar() {
         appearance.configureWithDefaultBackground()
         appearance.backgroundColor = #colorLiteral(red: 0.1454818547, green: 0.4972493052, blue: 0.2528410554, alpha: 1)
         appearance.titleTextAttributes = [.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), .font: UIFont.systemFont(ofSize: 18, weight: .semibold)]
@@ -66,7 +66,7 @@ class DetailViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = menuBarItem
     }
     
-    func setupSegmentedControl() {
+    private func setupSegmentedControl() {
         self.view.addSubview(segmentedControl)
         safeArea = view.layoutMarginsGuide
         segmentedControl.topAnchor.constraint(equalTo: safeArea.topAnchor,constant: 5).isActive = true
@@ -83,10 +83,8 @@ class DetailViewController: UIViewController {
         setupNavigationBar()
         setupSegmentedControl()
         setupTableView()
-
-       
-
     }
+    
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {

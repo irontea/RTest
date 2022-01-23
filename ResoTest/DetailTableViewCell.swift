@@ -54,7 +54,7 @@ class DetailTableViewCell: UITableViewCell {
         return officeRange
     }()
     
-    func setupViewCell() {
+    private func setupViewCell() {
         addSubview(viewCell)
         viewCell.topAnchor.constraint(equalTo: topAnchor).isActive = true
         viewCell.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true

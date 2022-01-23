@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
                   networkOff()
                }
     }
-    func isInternetAvailable() -> Bool {
+    private func isInternetAvailable() -> Bool {
            var zeroAddress = sockaddr_in()
            zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
            zeroAddress.sin_family = sa_family_t(AF_INET)
@@ -56,7 +56,7 @@ class MainViewController: UIViewController {
            return (isReachable && !needsConnection)
        }
     
-    func setupGetOfficeButton() {
+    private func setupGetOfficeButton() {
         view.addSubview(getOfficeButton)
         getOfficeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         getOfficeButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -71,8 +71,6 @@ class MainViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
     }
-
-
 }
 
 
@@ -90,3 +88,5 @@ extension MainViewController: MainViewProtocol {
     
 
 }
+
+
