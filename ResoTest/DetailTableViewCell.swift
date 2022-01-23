@@ -19,7 +19,9 @@ class DetailTableViewCell: UITableViewCell {
     let officeNameLabel: UILabel = {
         let officeName = UILabel()
         officeName.translatesAutoresizingMaskIntoConstraints = false
-        officeName.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        officeName.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        officeName.numberOfLines = 0
+        officeName.lineBreakMode = .byWordWrapping
         officeName.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return officeName
     }()
@@ -27,8 +29,10 @@ class DetailTableViewCell: UITableViewCell {
     let officeAdressLabel: UILabel = {
         let officeAdress = UILabel()
         officeAdress.translatesAutoresizingMaskIntoConstraints = false
-        officeAdress.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        officeAdress.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         officeAdress.textColor = #colorLiteral(red: 0.7694304585, green: 0.7645948529, blue: 0.7946180701, alpha: 1)
+        officeAdress.numberOfLines = 0
+        officeAdress.lineBreakMode = .byWordWrapping
         return officeAdress
     }()
     
@@ -36,7 +40,7 @@ class DetailTableViewCell: UITableViewCell {
         let officeStatus = UILabel()
         officeStatus.translatesAutoresizingMaskIntoConstraints = false
         officeStatus.text = "Окрыто"
-        officeStatus.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        officeStatus.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         officeStatus.textColor = #colorLiteral(red: 0, green: 0.4713379741, blue: 0.08517260104, alpha: 1)
         return officeStatus
     }()
@@ -45,7 +49,7 @@ class DetailTableViewCell: UITableViewCell {
         let officeRange = UILabel()
         officeRange.translatesAutoresizingMaskIntoConstraints = false
         officeRange.text = "до офиса: 1,4 км"
-        officeRange.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        officeRange.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         officeRange.textColor = #colorLiteral(red: 0.7694304585, green: 0.7645948529, blue: 0.7946180701, alpha: 1)
         return officeRange
     }()
@@ -63,14 +67,14 @@ class DetailTableViewCell: UITableViewCell {
         viewCell.addSubview(officeNameLabel)
         officeNameLabel.topAnchor.constraint(equalTo: viewCell.topAnchor, constant: 10).isActive = true
         officeNameLabel.leadingAnchor.constraint(equalTo: viewCell.leadingAnchor, constant: 10).isActive = true
-        officeNameLabel.trailingAnchor.constraint(equalTo: viewCell.trailingAnchor, constant: -30).isActive = true
+        officeNameLabel.trailingAnchor.constraint(equalTo: viewCell.trailingAnchor, constant: -40).isActive = true
     }
     
     private func setupOfficeAdressLabel() {
         viewCell.addSubview(officeAdressLabel)
         officeAdressLabel.topAnchor.constraint(equalTo: officeNameLabel.bottomAnchor, constant: 10).isActive = true
         officeAdressLabel.leadingAnchor.constraint(equalTo: viewCell.leadingAnchor, constant: 10).isActive = true
-        officeAdressLabel.trailingAnchor.constraint(equalTo: viewCell.trailingAnchor, constant: -30).isActive = true
+        officeAdressLabel.trailingAnchor.constraint(equalTo: viewCell.trailingAnchor, constant: -40).isActive = true
     }
     
     private func setupOfficeStatusLabel() {
@@ -85,7 +89,7 @@ class DetailTableViewCell: UITableViewCell {
         officeRangeLabel.topAnchor.constraint(equalTo: officeAdressLabel.bottomAnchor, constant: 10).isActive = true
         officeRangeLabel.leadingAnchor.constraint(equalTo: officeStatusLabel.trailingAnchor, constant: 5).isActive = true
         officeRangeLabel.bottomAnchor.constraint(equalTo: viewCell.bottomAnchor, constant: -10).isActive = true
-        officeAdressLabel.trailingAnchor.constraint(equalTo: viewCell.trailingAnchor, constant: -30).isActive = true
+        officeAdressLabel.trailingAnchor.constraint(equalTo: viewCell.trailingAnchor, constant: -40).isActive = true
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

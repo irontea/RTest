@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SystemConfiguration
 //600 210 45
 class MainViewController: UIViewController {
 
@@ -29,9 +30,31 @@ class MainViewController: UIViewController {
     }()
     
     @objc func getOfficeFromNetwork() {
-        let detailViewController = ModelBuilder.crateDetailModule()
-        navigationController?.pushViewController(detailViewController, animated: true)
+        if isInternetAvailable() {
+                   netwokrOn()
+               } else {
+                  networkOff()
+               }
     }
+    func isInternetAvailable() -> Bool {
+           var zeroAddress = sockaddr_in()
+           zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+           zeroAddress.sin_family = sa_family_t(AF_INET)
+           
+           let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+               $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                   SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+               }
+           }
+           
+           var flags = SCNetworkReachabilityFlags()
+           if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+               return false
+           }
+           let isReachable = flags.contains(.reachable)
+           let needsConnection = flags.contains(.connectionRequired)
+           return (isReachable && !needsConnection)
+       }
     
     func setupGetOfficeButton() {
         view.addSubview(getOfficeButton)
@@ -45,6 +68,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGetOfficeButton()
+        view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
     }
 
@@ -53,10 +77,16 @@ class MainViewController: UIViewController {
 
 
 extension MainViewController: MainViewProtocol {
-    func set() {
-
+    func netwokrOn() {
+        let detailViewController = ModelBuilder.crateDetailModule()
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
+    func networkOff() {
+        let alert = UIAlertController(title: "Осутсвует соединение с интернетом", message: "Отсутсвует соединение с интернетом, подключетесь к интернету и повторите запрос.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
 
-    
 }

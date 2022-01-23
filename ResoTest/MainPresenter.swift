@@ -8,7 +8,8 @@
 import Foundation
 
 protocol MainViewProtocol: AnyObject {
-    func set()
+    func netwokrOn()
+    func networkOff()
 }
 
 protocol MainViewPresenterProtocol: AnyObject {
